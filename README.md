@@ -52,7 +52,7 @@ Inclua aqui prints das páginas, por exemplo:
 | Nome | RM | Turma | GitHub | LinkedIn |
 |------|----|-------|--------|----------|
 | Nome do integrante 1 | 000000 | 1TDS | [GitHub](https://github.com/usuario-1) | [LinkedIn](https://www.linkedin.com/in/usuario-1) |
-| Bruno Godois | RM575296 | 1TDSPT | [GitHub](https://github.com/brunovgodois) | [LinkedIn](https://www.linkedin.com/in/usuario-2) |
+| Bruno Godois | RM575296 | 1TDSPT | [GitHub](https://github.com/brunovgodois) | [LinkedIn](https://www.linkedin.com/in/brunovgodois/?isSelfProfile=true) |
 | Nome do integrante 3 | 000000 | 1TDS | [GitHub](https://github.com/usuario-3) | [LinkedIn](https://www.linkedin.com/in/usuario-3) |
 | Nome do integrante 4 | 000000 | 1TDS | [GitHub](https://github.com/usuario-4) | [LinkedIn](https://www.linkedin.com/in/usuario-4) |
 | Nome do integrante 5 | 000000 | 1TDS | [GitHub](https://github.com/usuario-5) | [LinkedIn](https://www.linkedin.com/in/usuario-5) |
