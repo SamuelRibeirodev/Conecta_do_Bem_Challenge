@@ -1,0 +1,1807 @@
+/* ==========================================================
+  Conecta do Bem – Code Master | Challenge FIAP – Sprint 1
+  Apenas HTML5 + CSS3 (sem JavaScript, sem frameworks).
+
+  Sumário:
+  1. Variáveis e reset
+  2. Tipografia
+  3. Layout base (container, grids, seções)
+  4. Componentes (botões, selos, cards, fotos, formulários)
+  5. Cabeçalho e rodapé
+  6. Página inicial
+  7. Painel e gráficos (dados simulados)
+  8. Páginas internas (sobre, doar, parceiros, equipe, FAQ, apostas, contato)
+  9. Media queries (mobile first: 768px, 992px, 1300px)
+  10. Acessibilidade (movimento reduzido)
+   ========================================================== */
+
+/* ---------- 1. Variáveis e reset ---------- */
+:root {
+    /* Cores da identidade */
+    --cor-primaria: #0E5A57;
+    /* verde-petróleo */
+    --cor-primaria-escura: #093F3D;
+    --cor-primaria-clara: #DCEFEC;
+    --cor-destaque: #F4B63F;
+    /* amarelo sorriso */
+    --cor-destaque-escura: #E0A022;
+    --cor-destaque-clara: #FFF4DC;
+    --cor-branca: #FFFFFF;
+    --cor-fundo-claro: #F3F8F7;
+    --cor-texto: #16302F;
+    --cor-texto-suave: #4A6564;
+    --cor-borda: #D5E6E3;
+
+    /* Formas e sombras */
+    --raio-grande: 24px;
+    --raio: 16px;
+    --raio-pequeno: 10px;
+    --sombra: 0 10px 30px rgba(9, 63, 61, 0.08);
+    --sombra-forte: 0 18px 40px rgba(9, 63, 61, 0.16);
+
+    /* Espaçamentos */
+    --espaco-secao: 64px;
+
+    /* Fontes do sistema: carregam rápido e não dependem de bibliotecas */
+    --fonte: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte);
+    color: var(--cor-texto);
+    background: var(--cor-branca);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    color: var(--cor-primaria);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    color: inherit;
+}
+
+/* Foco visível em tudo que é clicável (inclui os labels dos radios estilizados) */
+:focus-visible,
+.opcoes input:focus-visible+label,
+.sintomas input:focus-visible+label {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 3px;
+}
+
+/* Link "Pular para o conteúdo": aparece só quando recebe foco pelo teclado */
+.pular-conteudo {
+    position: absolute;
+    left: 16px;
+    top: -60px;
+    z-index: 100;
+    padding: 10px 18px;
+    border-radius: var(--raio-pequeno);
+    background: var(--cor-primaria-escura);
+    color: var(--cor-branca);
+    font-weight: 600;
+}
+
+.pular-conteudo:focus {
+    top: 12px;
+}
+
+/* ---------- 2. Tipografia ---------- */
+h1,
+h2,
+h3 {
+    line-height: 1.15;
+    color: var(--cor-primaria-escura);
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 2.3rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+    font-weight: 750;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+p {
+    margin-bottom: 14px;
+}
+
+.lead,
+.intro,
+.papel,
+.faq-item p,
+.aviso {
+    color: var(--cor-texto-suave);
+}
+
+.lead {
+    font-size: 1.15rem;
+    max-width: 60ch;
+}
+
+.intro {
+    max-width: 64ch;
+    margin-bottom: 32px;
+}
+
+/* Pequena etiqueta acima dos títulos */
+.sobretitulo {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cor-primaria);
+}
+
+/* Destaque amarelo sublinhado em palavras do título */
+.marca-texto {
+    background: linear-gradient(transparent 62%, var(--cor-destaque) 62%);
+}
+
+/* ---------- 3. Layout base ---------- */
+.container {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.secao {
+    padding: var(--espaco-secao) 0;
+}
+
+.secao-clara {
+    background: var(--cor-fundo-claro);
+}
+
+/* Cabeçalho de seção centralizado */
+.secao-cabecalho {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.secao-cabecalho .intro {
+    margin: 0 auto;
+}
+
+/* Grades: uma coluna no celular, mais colunas nas media queries */
+.grid {
+    display: grid;
+    gap: 24px;
+}
+
+.roadmap,
+.passos,
+.kanban {
+    display: grid;
+    gap: 20px;
+}
+
+.alinhar-centro {
+    align-items: center;
+}
+
+.texto-largo {
+    max-width: 800px;
+}
+
+.lista {
+    list-style: disc;
+    padding-left: 22px;
+    margin-bottom: 16px;
+}
+
+.lista li {
+    margin-bottom: 6px;
+}
+
+/* Lista com marcadores de "check" desenhados em CSS */
+.lista-check li {
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 10px;
+}
+
+.lista-check li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--cor-primaria-clara);
+    color: var(--cor-primaria);
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+}
+
+/* ---------- 4. Componentes ---------- */
+/* Botões */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 26px;
+    border: 2px solid var(--cor-primaria);
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: var(--cor-primaria);
+    color: var(--cor-branca);
+    box-shadow: 0 8px 20px rgba(14, 90, 87, 0.25);
+}
+
+.btn-primary:hover {
+    background: var(--cor-primaria-escura);
+    border-color: var(--cor-primaria-escura);
+}
+
+.btn-secondary {
+    background: var(--cor-branca);
+    color: var(--cor-primaria);
+}
+
+.btn-secondary:hover {
+    background: var(--cor-primaria);
+    color: var(--cor-branca);
+}
+
+/* Botão amarelo: usado sobre fundos verde-petróleo (texto escuro = bom contraste) */
+.btn-destaque {
+    background: var(--cor-destaque);
+    border-color: var(--cor-destaque);
+    color: var(--cor-primaria-escura);
+}
+
+.btn-destaque:hover {
+    background: var(--cor-destaque-escura);
+    border-color: var(--cor-destaque-escura);
+}
+
+/* Botão vazado sobre fundo escuro */
+.btn-claro {
+    background: transparent;
+    border-color: var(--cor-branca);
+    color: var(--cor-branca);
+}
+
+.btn-claro:hover {
+    background: var(--cor-branca);
+    color: var(--cor-primaria-escura);
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+    background: var(--cor-borda);
+    border-color: var(--cor-borda);
+    color: var(--cor-texto-suave);
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+/* Link com seta */
+.link-seta {
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.link-seta::after {
+    content: " →";
+    transition: margin-left 0.2s;
+}
+
+.link-seta:hover::after {
+    margin-left: 4px;
+}
+
+/* Selos (badges) */
+.selo {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--cor-primaria-clara);
+    color: var(--cor-primaria-escura);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Selo amarelo que identifica qualquer número fictício */
+.selo-simulado {
+    background: var(--cor-destaque-clara);
+    border: 1px solid var(--cor-destaque);
+    color: #6B4A00;
+}
+
+/* Cards (caixas brancas com borda) */
+.card,
+.form-doacao,
+.coluna,
+.faq-item,
+.passo,
+.resultado,
+.painel {
+    background: var(--cor-branca);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+}
+
+.card {
+    padding: 28px;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+/* Cards clicáveis/importantes ganham movimento suave no hover */
+.card-pilar:hover,
+.card-plano:hover,
+.membro:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-forte);
+    border-color: var(--cor-primaria-clara);
+}
+
+.card .icone {
+    margin-bottom: 18px;
+}
+
+.card-pilar {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-pilar .link-seta {
+    margin-top: auto;
+}
+
+.card-numero,
+.membro {
+    text-align: center;
+}
+
+.numero {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--cor-primaria);
+    line-height: 1.1;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+/* Fotografias: object-fit: cover recorta sem distorcer */
+.foto {
+    position: relative;
+    border-radius: var(--raio-grande);
+    overflow: hidden;
+    background: var(--cor-primaria-clara);
+    /* aparece enquanto a imagem carrega */
+    box-shadow: var(--sombra);
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.foto-paisagem {
+    aspect-ratio: 4 / 3;
+}
+
+.foto-larga {
+    aspect-ratio: 16 / 9;
+}
+
+.foto-quadrada {
+    aspect-ratio: 1 / 1;
+}
+
+.foto figcaption {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    right: 16px;
+    padding: 10px 14px;
+    border-radius: var(--raio-pequeno);
+    background: rgba(9, 63, 61, 0.82);
+    color: var(--cor-branca);
+    font-size: 0.85rem;
+}
+
+/* Caixa de aviso (protótipo acadêmico, dados simulados) */
+.aviso-prototipo {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 18px 20px;
+    border-radius: var(--raio);
+    background: var(--cor-destaque-clara);
+    border: 1px solid var(--cor-destaque);
+    margin-bottom: 32px;
+}
+
+.aviso-prototipo p {
+    margin: 0;
+}
+
+.aviso-prototipo .aviso-icone {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--cor-destaque);
+    color: var(--cor-primaria-escura);
+    font-weight: 800;
+    line-height: 28px;
+    text-align: center;
+}
+
+/* Formulários */
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.campo label {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    padding: 13px 16px;
+    border: 1.5px solid var(--cor-borda);
+    border-radius: var(--raio-pequeno);
+    background: var(--cor-branca);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo input:hover,
+.campo select:hover,
+.campo textarea:hover {
+    border-color: var(--cor-texto-suave);
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 4px var(--cor-primaria-clara);
+    outline: none;
+}
+
+.campo-dica {
+    font-size: 0.85rem;
+    color: var(--cor-texto-suave);
+    margin: 6px 0 0;
+}
+
+/* ---------- 5. Cabeçalho e rodapé ---------- */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+/* No celular: logo + botão na 1ª linha e o menu rola na horizontal na 2ª linha */
+.header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--cor-primaria-escura);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+.header-cta {
+    padding: 9px 18px;
+    font-size: 0.9rem;
+}
+
+.site-header nav {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.menu {
+    display: flex;
+    gap: 4px;
+}
+
+.menu a {
+    display: block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.menu a:hover {
+    background: var(--cor-fundo-claro);
+    color: var(--cor-primaria);
+}
+
+.menu a.ativo {
+    background: var(--cor-primaria-clara);
+    color: var(--cor-primaria-escura);
+}
+
+/* Rodapé */
+.site-footer {
+    background: var(--cor-primaria-escura);
+    color: #D6EAE7;
+    padding-top: 56px;
+}
+
+.site-footer a {
+    color: var(--cor-branca);
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    color: var(--cor-destaque);
+    text-decoration: underline;
+}
+
+.footer-inner {
+    display: grid;
+    gap: 32px;
+}
+
+.footer-marca .logo {
+    color: var(--cor-branca);
+    margin-bottom: 14px;
+}
+
+.footer-titulo {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cor-destaque);
+    margin-bottom: 14px;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-copy {
+    margin: 48px 0 0;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* ---------- 6. Página inicial ---------- */
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 48px 0 64px;
+    background:
+        radial-gradient(circle at 85% 10%, var(--cor-destaque-clara) 0, transparent 40%),
+        linear-gradient(180deg, var(--cor-fundo-claro), var(--cor-branca));
+}
+
+.hero-inner {
+    display: grid;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-destaques {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    margin-top: 28px;
+    font-size: 0.92rem;
+    color: var(--cor-texto-suave);
+}
+
+.hero-destaques li::before {
+    content: "●";
+    color: var(--cor-destaque);
+    margin-right: 8px;
+}
+
+/* Foto do hero com um bloco amarelo decorativo atrás */
+.hero-midia {
+    position: relative;
+}
+
+.hero-midia::before {
+    content: "";
+    position: absolute;
+    right: -18px;
+    top: -18px;
+    width: 60%;
+    height: 70%;
+    border-radius: var(--raio-grande);
+    background: var(--cor-destaque);
+}
+
+.hero-midia .foto {
+    box-shadow: var(--sombra-forte);
+}
+
+/* Cartão flutuante sobre a foto do hero */
+.hero-cartao {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 290px;
+    padding: 12px 16px;
+    border-radius: var(--raio);
+    background: var(--cor-branca);
+    box-shadow: var(--sombra-forte);
+    font-size: 0.9rem;
+    line-height: 1.35;
+}
+
+.hero-cartao img {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+}
+
+.hero-cartao p {
+    margin: 0;
+}
+
+.hero-cartao strong {
+    display: block;
+    color: var(--cor-primaria-escura);
+}
+
+/* Programas da Turma do Bem */
+.programas {
+    display: grid;
+    gap: 14px;
+    margin: 24px 0 28px;
+}
+
+.programa {
+    padding: 16px 18px;
+    border-left: 4px solid var(--cor-destaque);
+    border-radius: 0 var(--raio-pequeno) var(--raio-pequeno) 0;
+    background: var(--cor-fundo-claro);
+}
+
+.programa h3 {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+}
+
+.programa p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--cor-texto-suave);
+}
+
+/* Faixa verde da missão / problema */
+.faixa-missao {
+    background: var(--cor-primaria);
+    color: #E3F2F0;
+}
+
+.faixa-missao h2,
+.faixa-missao h3,
+.faixa-missao .numero {
+    color: var(--cor-branca);
+}
+
+.faixa-missao .sobretitulo {
+    color: var(--cor-destaque);
+}
+
+.faixa-missao .intro {
+    color: #CFE6E2;
+}
+
+.card-escuro {
+    padding: 28px;
+    border-radius: var(--raio);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.card-escuro .numero {
+    color: var(--cor-destaque);
+}
+
+.card-escuro p:last-child {
+    margin-bottom: 0;
+}
+
+.fonte {
+    margin: 28px 0 0;
+    font-size: 0.85rem;
+    color: #B8D6D1;
+}
+
+.fonte a {
+    color: var(--cor-branca);
+}
+
+/* Chamada final */
+.chamada {
+    padding: 48px 28px;
+    border-radius: var(--raio-grande);
+    background:
+        radial-gradient(circle at 100% 0, rgba(244, 182, 63, 0.35) 0, transparent 45%),
+        var(--cor-primaria-escura);
+    color: #D6EAE7;
+    text-align: center;
+}
+
+.chamada h2 {
+    color: var(--cor-branca);
+}
+
+.chamada .sobretitulo {
+    color: var(--cor-destaque);
+}
+
+.chamada .botoes {
+    justify-content: center;
+}
+
+/* ---------- 7. Painel e gráficos (dados simulados) ---------- */
+.painel {
+    padding: 24px;
+    box-shadow: var(--sombra);
+}
+
+.painel-topo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.painel-topo h3 {
+    margin: 0;
+}
+
+/* Indicadores (KPIs) */
+.kpis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.kpi {
+    margin: 0;
+    padding: 16px;
+    border-radius: var(--raio-pequeno);
+    background: var(--cor-fundo-claro);
+}
+
+.kpi-valor {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--cor-primaria-escura);
+}
+
+.kpi-rotulo {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--cor-texto-suave);
+}
+
+/* Gráfico de colunas feito só com CSS.
+   A altura de cada coluna vem de uma classe (.altura-NN = NN% da área do gráfico). */
+.grafico-titulo {
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.grafico-colunas {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    /* pequeno espaço entre as colunas */
+    height: 180px;
+    padding-top: 24px;
+    /* espaço para o valor acima da coluna mais alta */
+    border-bottom: 1px solid var(--cor-borda);
+    background: repeating-linear-gradient(to top, transparent 0, transparent 44px, #EEF4F3 44px, #EEF4F3 45px);
+}
+
+.coluna-grafico {
+    position: relative;
+    flex: 1;
+    margin: 0 6px;
+    border-radius: 4px 4px 0 0;
+    /* ponta arredondada, base reta no eixo */
+    background: var(--cor-primaria);
+    transition: background-color 0.2s;
+}
+
+.coluna-grafico:hover {
+    background: var(--cor-primaria-escura);
+}
+
+/* Valor escrito acima de cada coluna */
+.coluna-grafico span {
+    position: absolute;
+    top: -22px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--cor-texto);
+}
+
+.altura-42 {
+    height: 42%;
+}
+
+.altura-48 {
+    height: 48%;
+}
+
+.altura-55 {
+    height: 55%;
+}
+
+.altura-63 {
+    height: 63%;
+}
+
+.altura-66 {
+    height: 66%;
+}
+
+.altura-71 {
+    height: 71%;
+}
+
+.grafico-eixo {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 0;
+}
+
+.grafico-eixo li {
+    flex: 1;
+    margin: 6px 6px 0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--cor-texto-suave);
+}
+
+/* Barras horizontais (formas de pagamento) */
+.barra-rotulo {
+    display: flex;
+    justify-content: space-between;
+    margin: 14px 0 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.barra {
+    height: 12px;
+    background: var(--cor-fundo-claro);
+    border-radius: 999px;
+    overflow: hidden;
+    /* arredonda também a barra interna */
+}
+
+.barra-valor {
+    height: 100%;
+    border-radius: 999px;
+    background: var(--cor-primaria);
+}
+
+.barra-70 {
+    width: 70%;
+}
+
+.barra-55 {
+    width: 55%;
+}
+
+.barra-40 {
+    width: 40%;
+}
+
+/* Funil de captação: cada etapa é uma barra mais curta que a anterior */
+.funil li {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.funil-info {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-weight: 600;
+}
+
+.funil-info strong {
+    font-size: 1.15rem;
+    color: var(--cor-primaria-escura);
+}
+
+.funil-trilha {
+    height: 40px;
+    border-radius: var(--raio-pequeno);
+    background: var(--cor-fundo-claro);
+}
+
+.funil-barra {
+    height: 100%;
+    min-width: 8px;
+    border-radius: var(--raio-pequeno);
+    background: var(--cor-primaria);
+}
+
+.funil-barra.etapa-final {
+    background: var(--cor-destaque);
+}
+
+.largura-100 {
+    width: 100%;
+}
+
+.largura-45 {
+    width: 45%;
+}
+
+.largura-18 {
+    width: 18%;
+}
+
+.largura-13 {
+    width: 13%;
+}
+
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.tabela th,
+.tabela td {
+    text-align: left;
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.tabela th {
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--cor-texto-suave);
+}
+
+.tabela-rolagem {
+    overflow-x: auto;
+}
+
+/* ---------- 8. Páginas internas ---------- */
+/* Título das páginas internas */
+.page-titulo {
+    padding: 56px 0 48px;
+    background:
+        radial-gradient(circle at 90% 0, var(--cor-destaque-clara) 0, transparent 35%),
+        var(--cor-fundo-claro);
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.page-titulo h1 {
+    max-width: 20ch;
+}
+
+/* --- Sobre --- */
+/* Ciclo da pobreza (também usado em doar.html) */
+.ciclo {
+    display: grid;
+    gap: 12px;
+    counter-reset: ciclo;
+}
+
+.ciclo li {
+    counter-increment: ciclo;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    border-radius: var(--raio-pequeno);
+    background: var(--cor-branca);
+    border: 1px solid var(--cor-borda);
+    font-weight: 600;
+}
+
+.ciclo li::before {
+    content: counter(ciclo);
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--cor-destaque);
+    color: var(--cor-primaria-escura);
+    font-weight: 800;
+    line-height: 32px;
+    text-align: center;
+}
+
+/* Passo a passo numerado automaticamente com contador CSS */
+.passos {
+    counter-reset: passo;
+}
+
+.passo {
+    counter-increment: passo;
+    position: relative;
+    padding: 24px;
+}
+
+.passo::before {
+    content: counter(passo);
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    background: var(--cor-primaria);
+    color: var(--cor-branca);
+    font-weight: 800;
+    font-size: 1.1rem;
+    line-height: 40px;
+    text-align: center;
+}
+
+.passo p {
+    margin: 0;
+    color: var(--cor-texto-suave);
+}
+
+/* Roadmap */
+.roadmap {
+    margin-top: 8px;
+}
+
+.roadmap-item {
+    position: relative;
+    padding: 24px;
+    border-radius: var(--raio);
+    background: var(--cor-branca);
+    border: 1px solid var(--cor-borda);
+    border-top: 5px solid var(--cor-borda);
+}
+
+.roadmap-item p {
+    margin: 0;
+    color: var(--cor-texto-suave);
+}
+
+.roadmap-item .selo {
+    margin-bottom: 12px;
+}
+
+.roadmap-item.concluido {
+    border-top-color: var(--cor-primaria);
+}
+
+.roadmap-item.em-andamento {
+    border-top-color: var(--cor-destaque);
+}
+
+/* --- Doar --- */
+.form-doacao {
+    padding: 28px;
+    box-shadow: var(--sombra);
+}
+
+.form-doacao fieldset,
+.tratamento {
+    border: none;
+    margin-bottom: 30px;
+}
+
+.form-doacao legend,
+.tratamento legend {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--cor-primaria-escura);
+    margin-bottom: 14px;
+}
+
+.opcoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Input escondido visualmente; o label vira botão selecionável (só CSS) */
+.opcoes input,
+.sintomas input {
+    position: absolute;
+    opacity: 0;
+}
+
+.opcoes label {
+    padding: 12px 24px;
+    border: 2px solid var(--cor-borda);
+    border-radius: var(--raio);
+    background: var(--cor-branca);
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.opcoes label:hover {
+    border-color: var(--cor-primaria);
+}
+
+.opcoes input:checked+label {
+    border-color: var(--cor-primaria);
+    background: var(--cor-primaria);
+    color: var(--cor-branca);
+}
+
+/* Cards de valor: o mesmo truque do radio, com mais conteúdo dentro do label */
+.opcoes-valor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.opcoes-valor label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 18px;
+    text-align: center;
+}
+
+.valor-numero {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--cor-primaria-escura);
+}
+
+.valor-texto {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--cor-texto-suave);
+}
+
+.opcoes-valor input:checked+label {
+    background: var(--cor-primaria-clara);
+    color: var(--cor-primaria-escura);
+    box-shadow: inset 0 0 0 1px var(--cor-primaria);
+}
+
+/* Formas de pagamento: cards com ícone em texto */
+.opcoes-forma {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.opcoes-forma label {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 18px;
+}
+
+.opcoes-forma label small {
+    font-weight: 400;
+    font-size: 0.85rem;
+    opacity: 0.85;
+}
+
+/* Painel de explicação de cada forma: aparece conforme o radio marcado (:has) */
+.forma-detalhe {
+    display: none;
+    margin-top: 16px;
+    padding: 18px 20px;
+    border-radius: var(--raio-pequeno);
+    background: var(--cor-fundo-claro);
+    border: 1px dashed var(--cor-primaria);
+}
+
+.forma-detalhe p:last-child {
+    margin-bottom: 0;
+}
+
+.form-doacao:has(#forma-pix:checked) .detalhe-pix,
+.form-doacao:has(#forma-boleto:checked) .detalhe-boleto,
+.form-doacao:has(#forma-recorrente:checked) .detalhe-recorrente {
+    display: block;
+}
+
+.form-doacao .campos-dados {
+    display: grid;
+    gap: 0 18px;
+}
+
+.resumo-doacao {
+    position: sticky;
+    top: 96px;
+    align-self: start;
+}
+
+/* --- Parceiros --- */
+.card-plano {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card-plano .btn {
+    margin-top: auto;
+    width: 100%;
+}
+
+.plano-nivel {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cor-texto-suave);
+    margin-bottom: 6px;
+}
+
+.card-plano.destaque {
+    border: 2px solid var(--cor-primaria);
+    box-shadow: var(--sombra-forte);
+}
+
+.card-plano.destaque .selo {
+    position: absolute;
+    top: -14px;
+    left: 28px;
+    background: var(--cor-destaque);
+}
+
+.kanban {
+    gap: 16px;
+}
+
+.coluna {
+    padding: 16px;
+    background: var(--cor-fundo-claro);
+}
+
+.coluna h3 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+
+.item-kanban {
+    background: var(--cor-branca);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-pequeno);
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.painel-detalhe {
+    margin-top: 24px;
+}
+
+/* --- Equipe Code Master --- */
+.equipe-topo {
+    padding: 64px 0 56px;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(244, 182, 63, 0.25) 0, transparent 35%),
+        var(--cor-primaria-escura);
+    color: #D6EAE7;
+}
+
+.equipe-topo h1 {
+    color: var(--cor-branca);
+    max-width: 22ch;
+}
+
+.equipe-topo h1 span {
+    color: var(--cor-destaque);
+}
+
+.equipe-topo .sobretitulo {
+    color: var(--cor-destaque);
+}
+
+.equipe-topo .lead {
+    color: #CFE6E2;
+}
+
+.valores-equipe {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.valores-equipe li {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 0.9rem;
+}
+
+.membro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.foto-membro {
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 18px;
+    border: 4px solid var(--cor-branca);
+    box-shadow: 0 0 0 3px var(--cor-destaque);
+}
+
+.membro h2 {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.papel {
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.membro-dados {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.links-membro {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: auto 0 0;
+}
+
+.links-membro a {
+    padding: 8px 16px;
+    border: 1.5px solid var(--cor-borda);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.links-membro a:hover {
+    border-color: var(--cor-primaria);
+    background: var(--cor-fundo-claro);
+}
+
+/* --- FAQ --- */
+.faq-item {
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+}
+
+.faq-item[open] {
+    border-color: var(--cor-primaria);
+}
+
+.faq-item summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 22px;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Sinal de + / − feito com CSS */
+.faq-item summary::after {
+    content: "+";
+    flex-shrink: 0;
+    font-size: 1.3rem;
+    line-height: 1;
+    color: var(--cor-primaria);
+}
+
+.faq-item[open] summary::after {
+    content: "−";
+}
+
+.faq-item p {
+    padding: 0 22px 18px;
+    margin: 0;
+}
+
+/* --- Autoavaliação de apostas --- */
+.quiz {
+    max-width: 760px;
+    counter-reset: pontos;
+}
+
+.sintomas {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.sintomas label {
+    position: relative;
+    padding: 14px 18px 14px 54px;
+    border: 2px solid var(--cor-borda);
+    border-radius: var(--raio);
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.sintomas label:hover {
+    border-color: var(--cor-primaria);
+}
+
+/* Caixinha de marcação desenhada só com CSS */
+.sintomas label::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    width: 22px;
+    height: 22px;
+    margin-top: -11px;
+    border: 2px solid var(--cor-primaria);
+    border-radius: 6px;
+    color: var(--cor-branca);
+    font-size: 0.9rem;
+    line-height: 18px;
+    text-align: center;
+}
+
+.sintomas input:checked+label {
+    border-color: var(--cor-primaria);
+    background: var(--cor-fundo-claro);
+}
+
+.sintomas input:checked+label::before {
+    content: "✓";
+    background: var(--cor-primaria);
+}
+
+/* Contagem de itens marcados com contador CSS */
+.sim:checked {
+    counter-increment: pontos;
+}
+
+.contagem {
+    font-weight: 700;
+    color: var(--cor-primaria);
+}
+
+.contagem::after {
+    content: counter(pontos) " de 9";
+}
+
+.resultado {
+    padding: 28px;
+    border-left: 6px solid var(--cor-destaque);
+    margin-bottom: 20px;
+}
+
+.contatos-ajuda li {
+    margin-bottom: 10px;
+}
+
+.aviso {
+    font-size: 0.9rem;
+}
+
+/* Mostra o grau conforme a quantidade marcada (:nth-child(n of ...) conta os marcados) */
+.nivel,
+.tratamento,
+.ajuda,
+.nao-agora {
+    display: none;
+}
+
+.nivel-baixo {
+    display: block;
+}
+
+.quiz:has(:nth-child(4 of .sim:checked)) .nivel-baixo {
+    display: none;
+}
+
+.quiz:has(:nth-child(4 of .sim:checked)) :is(.nivel-leve, .tratamento) {
+    display: block;
+}
+
+.quiz:has(:nth-child(6 of .sim:checked)) .nivel-leve {
+    display: none;
+}
+
+.quiz:has(:nth-child(6 of .sim:checked)) .nivel-moderado {
+    display: block;
+}
+
+.quiz:has(:nth-child(8 of .sim:checked)) .nivel-moderado {
+    display: none;
+}
+
+.quiz:has(:nth-child(8 of .sim:checked)) .nivel-grave {
+    display: block;
+}
+
+.quiz:has(:nth-child(4 of .sim:checked)):has(#tratar-sim:checked) .ajuda,
+.quiz:has(:nth-child(4 of .sim:checked)):has(#tratar-nao:checked) .nao-agora {
+    display: block;
+}
+
+/* --- Contato --- */
+.form-contato {
+    padding: 28px;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+}
+
+.info-contato {
+    align-self: start;
+}
+
+.info-contato p strong {
+    color: var(--cor-primaria-escura);
+}
+
+/* ---------- 9. Media queries (mobile first) ---------- */
+/* Tablets (768px ou mais) */
+@media (min-width: 768px) {
+    .container {
+        padding: 0 32px;
+    }
+
+    h1 {
+        font-size: 2.9rem;
+    }
+
+    h2 {
+        font-size: 2.1rem;
+    }
+
+    .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .roadmap,
+    .passos,
+    .kanban {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-inner {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+
+    .programas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .opcoes-valor {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .opcoes-forma {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .form-doacao .campos-dados {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-doacao {
+        padding: 36px;
+    }
+
+    .chamada {
+        padding: 64px 48px;
+    }
+
+    .funil li {
+        grid-template-columns: 220px 1fr;
+        align-items: center;
+    }
+}
+
+/* Laptops e desktops (992px ou mais) */
+@media (min-width: 992px) {
+    :root {
+        --espaco-secao: 88px;
+    }
+
+    .hero {
+        padding: 72px 0 96px;
+    }
+
+    .hero-inner {
+        grid-template-columns: 1.05fr 1fr;
+        gap: 64px;
+    }
+
+    .grid-4,
+    .roadmap,
+    .passos,
+    .kanban {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid {
+        gap: 28px;
+    }
+
+    .layout-doacao {
+        grid-template-columns: 1.6fr 1fr;
+    }
+}
+
+/* Menu em uma linha só quando há espaço suficiente */
+@media (min-width: 1140px) {
+    .header-inner {
+        flex-wrap: nowrap;
+    }
+
+    .site-header nav {
+        order: 0;
+        width: auto;
+        overflow: visible;
+    }
+}
+
+/* Telas grandes (1300px ou mais) */
+@media (min-width: 1300px) {
+    h1 {
+        font-size: 3.4rem;
+    }
+
+    .page-titulo h1 {
+        font-size: 3rem;
+    }
+
+    .grid {
+        gap: 32px;
+    }
+}
+
+/* ---------- 10. Acessibilidade ---------- */
+/* Quem pede menos animação no sistema não vê movimentos */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+
+    .btn:hover,
+    .card-pilar:hover,
+    .card-plano:hover,
+    .membro:hover {
+        transform: none;
+    }
+}
