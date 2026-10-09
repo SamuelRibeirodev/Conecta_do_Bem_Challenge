@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Autoavaliação de bem-estar sobre a relação com apostas, com orientações e contatos de ajuda gratuita.">
+    <title>Autoavaliação de bem-estar | Conecta do Bem</title>
+    <link rel="icon" type="image/svg+xml" href="../img/logo.svg">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- Cabeçalho padrão (igual em todas as páginas) -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="../index.html">
+                <img src="../img/logo.svg" alt="" width="40" height="40">
+                <span>Conecta do Bem</span>
+            </a>
+            <nav aria-label="Menu principal">
+                <ul class="menu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="doar.html">Doar</a></li>
+                    <li><a href="parceiros.html">Parceiros</a></li>
+                    <li><a href="autoavaliacao.html" class="ativo" aria-current="page">Autoavaliação</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="integrantes.html">Code Master</a></li>
+                </ul>
+            </nav>
+            <a class="btn btn-primary header-cta" href="doar.html">Quero doar</a>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main id="conteudo">
+
+        <section class="page-titulo">
+            <div class="container">
+                <span class="sobretitulo">Cuidado e bem-estar</span>
+                <h1>Autoavaliação: sua relação com as apostas</h1>
+                <p class="lead">Saúde vai além do sorriso. As apostas on-line podem afetar as finanças, os
+                    relacionamentos e a saúde mental. Responda com sinceridade pensando nos últimos 12 meses. O
+                    resultado aparece na hora e as respostas são enviadas de forma anônima para as estatísticas do
+                    projeto.</p>
+            </div>
+        </section>
+
+        <section class="secao">
+            <div class="container">
+                <!-- Troque SEU_ID pelo código do formulário criado em formspree.io: as respostas ficam salvas lá -->
+                <form class="quiz" action="https://formspree.io/f/SEU_ID" method="post">
+                    <h2>Marque o que já aconteceu com você</h2>
+
+                    <!-- Os checkboxes precisam ser irmãos para o CSS contar quantos foram marcados -->
+                    <div class="sintomas">
+                        <input type="checkbox" id="s1" name="aposta_mais_para_sentir_emocao" value="sim" class="sim">
+                        <label for="s1">Preciso apostar valores cada vez maiores para sentir a mesma emoção.</label>
+                        <input type="checkbox" id="s2" name="irritado_ao_parar" value="sim" class="sim">
+                        <label for="s2">Fico inquieto(a) ou irritado(a) quando tento diminuir ou parar.</label>
+                        <input type="checkbox" id="s3" name="tentou_parar_sem_sucesso" value="sim" class="sim">
+                        <label for="s3">Já tentei controlar, diminuir ou parar várias vezes, sem conseguir.</label>
+                        <input type="checkbox" id="s4" name="pensa_em_apostas" value="sim" class="sim">
+                        <label for="s4">Penso muito em apostas: na última, na próxima ou em como conseguir dinheiro para
+                            apostar.</label>
+                        <input type="checkbox" id="s5" name="aposta_quando_mal" value="sim" class="sim">
+                        <label for="s5">Aposto quando estou triste, ansioso(a) ou estressado(a).</label>
+                        <input type="checkbox" id="s6" name="tenta_recuperar_perdas" value="sim" class="sim">
+                        <label for="s6">Depois de perder, volto a apostar para tentar recuperar o dinheiro.</label>
+                        <input type="checkbox" id="s7" name="mente_sobre_apostas" value="sim" class="sim">
+                        <label for="s7">Minto para família ou amigos para esconder quanto aposto.</label>
+                        <input type="checkbox" id="s8" name="prejuizo_vida" value="sim" class="sim">
+                        <label for="s8">Já prejudiquei ou perdi um relacionamento, emprego ou estudo por causa das
+                            apostas.</label>
+                        <input type="checkbox" id="s9" name="pediu_dinheiro_dividas" value="sim" class="sim">
+                        <label for="s9">Já precisei que outras pessoas pagassem dívidas que fiz com apostas.</label>
+                    </div>
+
+                    <!-- Resultado: o CSS mostra só o bloco que corresponde à quantidade marcada -->
+                    <div class="resultado" aria-live="polite">
+                        <p class="contagem">Itens marcados: </p>
+
+                        <div class="nivel nivel-baixo">
+                            <h3>Sem sinais de vício</h3>
+                            <p>Com até 3 itens marcados, não há indício de transtorno do jogo. Se as apostas começarem a
+                                pesar, procure ajuda cedo.</p>
+                        </div>
+                        <div class="nivel nivel-leve">
+                            <h3>Grau leve</h3>
+                            <p>De 4 a 5 itens: as apostas já estão trazendo prejuízo. Este é o melhor momento para
+                                buscar apoio.</p>
+                        </div>
+                        <div class="nivel nivel-moderado">
+                            <h3>Grau moderado</h3>
+                            <p>De 6 a 7 itens: há sinais claros de vício. Conversar com um profissional pode fazer muita
+                                diferença.</p>
+                        </div>
+                        <div class="nivel nivel-grave">
+                            <h3>Grau grave</h3>
+                            <p>De 8 a 9 itens: o vício está afetando muito a sua vida. Você não precisa enfrentar isso
+                                sozinho(a).</p>
+                        </div>
+
+                        <!-- Pergunta sobre tratamento (aparece a partir do grau leve) -->
+                        <fieldset class="tratamento">
+                            <legend>Você quer buscar tratamento?</legend>
+                            <div class="opcoes">
+                                <input type="radio" id="tratar-sim" name="quer_tratamento" value="sim">
+                                <label for="tratar-sim">Sim, quero ajuda</label>
+                                <input type="radio" id="tratar-nao" name="quer_tratamento" value="nao">
+                                <label for="tratar-nao">Agora não</label>
+                            </div>
+                        </fieldset>
+
+                        <div class="ajuda">
+                            <h3>Onde conseguir ajuda gratuita</h3>
+                            <ul class="contatos-ajuda">
+                                <li><strong>Meu SUS Digital</strong> – aba Saúde Mental: teleatendimento gratuito e
+                                    sigiloso com psicólogos para quem tem problema com apostas (maiores de 18 anos).
+                                </li>
+                                <li><strong>CVV – <a href="tel:188">188</a></strong> – apoio emocional 24 horas, ligação
+                                    gratuita.</li>
+                                <li><strong>Disque Saúde – <a href="tel:136">136</a></strong> – informa o CAPS mais
+                                    perto de você.</li>
+                            </ul>
+                        </div>
+                        <p class="nao-agora">Tudo bem. Se mudar de ideia, os contatos acima continuam disponíveis: o CVV
+                            atende 24 horas no <a href="tel:188">188</a>.</p>
+                    </div>
+
+                    <p class="aviso">Esta autoavaliação é baseada nos critérios do DSM-5 para transtorno do jogo e não
+                        substitui um diagnóstico profissional.</p>
+                    <button class="btn btn-primary" type="submit">Enviar respostas anônimas</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé padrão (igual em todas as páginas) -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-marca">
+                <a class="logo" href="../index.html">
+                    <img src="../img/logo.svg" alt="" width="40" height="40">
+                    <span>Conecta do Bem</span>
+                </a>
+                <p>Plataforma criada no Challenge FIAP 1TDS para apoiar a captação e o relacionamento da Turma do Bem.
+                </p>
+                <p>Desenvolvido por <a href="integrantes.html">Code Master | FIAP</a>.</p>
+            </div>
+            <div>
+                <p class="footer-titulo">Navegação</p>
+                <ul class="footer-links">
+                    <li><a href="sobre.html">Sobre o projeto</a></li>
+                    <li><a href="doar.html">Quero doar</a></li>
+                    <li><a href="parceiros.html">Quero ser parceiro</a></li>
+                    <li><a href="faq.html">Perguntas frequentes</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer-titulo">Contato</p>
+                <p>contato@conectadobem.exemplo</p>
+                <p><a href="contato.html">Fale com a equipe</a></p>
+            </div>
+        </div>
+        <p class="footer-copy">Projeto acadêmico FIAP – Challenge 1TDS – Sprint 1. Não é um site oficial da Turma do
+            Bem.</p>
+    </footer>
+</body>
+
+</html>

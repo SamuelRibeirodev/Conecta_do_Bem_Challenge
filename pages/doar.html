@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Protótipo da jornada de doação do Conecta do Bem: escolha de valor e de forma de doação por PIX, boleto ou doação mensal.">
+    <title>Quero doar | Conecta do Bem</title>
+    <link rel="icon" type="image/svg+xml" href="../img/logo.svg">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- Cabeçalho padrão (igual em todas as páginas) -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="../index.html">
+                <img src="../img/logo.svg" alt="" width="40" height="40">
+                <span>Conecta do Bem</span>
+            </a>
+            <nav aria-label="Menu principal">
+                <ul class="menu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="doar.html" class="ativo" aria-current="page">Doar</a></li>
+                    <li><a href="parceiros.html">Parceiros</a></li>
+                    <li><a href="autoavaliacao.html">Autoavaliação</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="integrantes.html">Code Master</a></li>
+                </ul>
+            </nav>
+            <a class="btn btn-primary header-cta" href="doar.html">Quero doar</a>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main id="conteudo">
+
+        <section class="page-titulo">
+            <div class="container">
+                <span class="sobretitulo">Doação pessoa física</span>
+                <h1>Sua doação vira atendimento</h1>
+                <p class="lead">Escolha um valor e a forma que for mais prática para você: PIX, boleto ou doação mensal.
+                </p>
+            </div>
+        </section>
+
+        <!-- Protótipo do formulário de doação -->
+        <section class="secao">
+            <div class="container">
+
+                <div class="aviso-prototipo" role="note">
+                    <span class="aviso-icone" aria-hidden="true">!</span>
+                    <p><strong>Protótipo acadêmico.</strong> Esta página mostra como seria a jornada de doação. Nenhum
+                        dado é enviado e nenhum pagamento é realizado. Para doar de verdade, procure os canais oficiais
+                        da Turma do Bem.</p>
+                </div>
+
+                <div class="grid layout-doacao">
+                    <form class="form-doacao" action="#" method="get">
+                        <fieldset>
+                            <legend>1. Escolha o valor</legend>
+                            <div class="opcoes opcoes-valor">
+                                <input type="radio" id="valor-30" name="valor" value="30" checked>
+                                <label for="valor-30"><span class="valor-numero">R$ 30</span><span
+                                        class="valor-texto">Apoio inicial</span></label>
+                                <input type="radio" id="valor-60" name="valor" value="60">
+                                <label for="valor-60"><span class="valor-numero">R$ 60</span><span
+                                        class="valor-texto">Apoio intermediário</span></label>
+                                <input type="radio" id="valor-120" name="valor" value="120">
+                                <label for="valor-120"><span class="valor-numero">R$ 120</span><span
+                                        class="valor-texto">Apoio ampliado</span></label>
+                                <input type="radio" id="valor-outro" name="valor" value="outro">
+                                <label for="valor-outro"><span class="valor-numero">Outro</span><span
+                                        class="valor-texto">Você define</span></label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>2. Escolha como doar</legend>
+                            <div class="opcoes opcoes-forma">
+                                <input type="radio" id="forma-pix" name="forma" value="pix" checked>
+                                <label for="forma-pix">PIX <small>Na hora, pelo app do banco</small></label>
+                                <input type="radio" id="forma-boleto" name="forma" value="boleto">
+                                <label for="forma-boleto">Boleto <small>Pague até o vencimento</small></label>
+                                <input type="radio" id="forma-recorrente" name="forma" value="recorrente">
+                                <label for="forma-recorrente">Doação mensal <small>Apoio contínuo todo
+                                        mês</small></label>
+                            </div>
+
+                            <!-- Só o painel da forma marcada aparece (regra :has no CSS) -->
+                            <div class="forma-detalhe detalhe-pix">
+                                <p><strong>Como funcionaria o PIX:</strong> a plataforma geraria um QR Code e uma chave
+                                    copia e cola para você pagar pelo aplicativo do seu banco.</p>
+                            </div>
+                            <div class="forma-detalhe detalhe-boleto">
+                                <p><strong>Como funcionaria o boleto:</strong> você receberia o boleto por e-mail e
+                                    poderia pagar em qualquer banco ou aplicativo até a data de vencimento.</p>
+                            </div>
+                            <div class="forma-detalhe detalhe-recorrente">
+                                <p><strong>Como funcionaria a doação mensal:</strong> o mesmo valor seria doado todo
+                                    mês, com a opção de pausar ou cancelar quando quiser.</p>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>3. Seus dados</legend>
+                            <div class="campos-dados">
+                                <div class="campo">
+                                    <label for="doador-nome">Nome completo</label>
+                                    <input type="text" id="doador-nome" name="nome" placeholder="Digite seu nome"
+                                        autocomplete="name">
+                                </div>
+                                <div class="campo">
+                                    <label for="doador-email">E-mail</label>
+                                    <input type="email" id="doador-email" name="email" placeholder="voce@email.com"
+                                        autocomplete="email">
+                                </div>
+                            </div>
+                            <p class="campo-dica">O e-mail seria usado para enviar o comprovante e novidades sobre o
+                                impacto das doações.</p>
+                        </fieldset>
+
+                        <button class="btn btn-primary" type="submit" disabled aria-describedby="aviso-botao">Continuar
+                            para a doação</button>
+                        <p class="campo-dica" id="aviso-botao">Botão desativado: este protótipo não processa pagamentos.
+                        </p>
+                    </form>
+
+                    <!-- Lateral: o que acontece depois -->
+                    <aside class="card resumo-doacao">
+                        <img class="icone" src="../img/icone-doacao.svg" alt="" width="56" height="56">
+                        <h2>Por que doar?</h2>
+                        <p>A Turma do Bem depende de doadores e parceiros para manter e ampliar o atendimento
+                            odontológico gratuito.</p>
+                        <ul class="lista-check">
+                            <li>Processo em poucos passos</li>
+                            <li>Escolha entre PIX, boleto ou doação mensal</li>
+                            <li>Comprovante enviado por e-mail</li>
+                        </ul>
+                        <a class="link-seta" href="faq.html">Dúvidas frequentes</a>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problema -->
+        <section class="secao secao-clara">
+            <div class="container grid grid-2 alinhar-centro">
+                <div>
+                    <span class="sobretitulo">O problema</span>
+                    <h2>O ciclo que sua doação ajuda a quebrar</h2>
+                    <p>Quem não tem acesso ao dentista perde dentes, encontra mais barreiras para conseguir emprego e
+                        segue sem renda para tratar a saúde bucal.</p>
+                    <p>As doações ajudam a interromper esse ciclo ao apoiar o atendimento odontológico gratuito de
+                        jovens e mulheres.</p>
+                </div>
+                <ol class="ciclo">
+                    <li>Não vai ao dentista</li>
+                    <li>Perde os dentes</li>
+                    <li>Não arruma um bom emprego</li>
+                    <li>Não tem dinheiro</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Passo a passo -->
+        <section class="secao">
+            <div class="container">
+                <div class="secao-cabecalho">
+                    <span class="sobretitulo">Passo a passo</span>
+                    <h2>Como a doação funcionaria</h2>
+                </div>
+                <ol class="passos">
+                    <li class="passo">
+                        <h3>Escolha</h3>
+                        <p>Defina o valor e a forma de doação.</p>
+                    </li>
+                    <li class="passo">
+                        <h3>Identifique-se</h3>
+                        <p>Informe nome e e-mail para receber o comprovante.</p>
+                    </li>
+                    <li class="passo">
+                        <h3>Confirme</h3>
+                        <p>Pague por PIX ou boleto, ou ative a doação mensal.</p>
+                    </li>
+                    <li class="passo">
+                        <h3>Acompanhe</h3>
+                        <p>Receba novidades sobre o impacto das doações.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé padrão (igual em todas as páginas) -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-marca">
+                <a class="logo" href="../index.html">
+                    <img src="../img/logo.svg" alt="" width="40" height="40">
+                    <span>Conecta do Bem</span>
+                </a>
+                <p>Plataforma criada no Challenge FIAP 1TDS para apoiar a captação e o relacionamento da Turma do Bem.
+                </p>
+                <p>Desenvolvido por <a href="integrantes.html">Code Master | FIAP</a>.</p>
+            </div>
+            <div>
+                <p class="footer-titulo">Navegação</p>
+                <ul class="footer-links">
+                    <li><a href="sobre.html">Sobre o projeto</a></li>
+                    <li><a href="doar.html">Quero doar</a></li>
+                    <li><a href="parceiros.html">Quero ser parceiro</a></li>
+                    <li><a href="faq.html">Perguntas frequentes</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer-titulo">Contato</p>
+                <p>contato@conectadobem.exemplo</p>
+                <p><a href="contato.html">Fale com a equipe</a></p>
+            </div>
+        </div>
+        <p class="footer-copy">Projeto acadêmico FIAP – Challenge 1TDS – Sprint 1. Não é um site oficial da Turma do
+            Bem.</p>
+    </footer>
+</body>
+
+</html>

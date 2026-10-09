@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Conecta do Bem: plataforma para centralizar doadores e parceiros da Turma do Bem.">
+    <title>Contato | Conecta do Bem</title>
+    <link rel="icon" type="image/svg+xml" href="../img/logo.svg">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- Cabeçalho padrão (igual em todas as páginas) -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="../index.html">
+                <img src="../img/logo.svg" alt="" width="40" height="40">
+                <span>Conecta do Bem</span>
+            </a>
+            <nav aria-label="Menu principal">
+                <ul class="menu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="doar.html">Doar</a></li>
+                    <li><a href="parceiros.html">Parceiros</a></li>
+                    <li><a href="autoavaliacao.html">Autoavaliação</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contato.html" class="ativo" aria-current="page">Contato</a></li>
+                    <li><a href="integrantes.html">Code Master</a></li>
+                </ul>
+            </nav>
+            <a class="btn btn-primary header-cta" href="doar.html">Quero doar</a>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main id="conteudo">
+
+        <section class="page-titulo">
+            <div class="container">
+                <span class="sobretitulo">Contato</span>
+                <h1>Fale com a equipe</h1>
+                <p class="lead">Tem dúvidas, sugestões ou quer conversar sobre uma parceria? Escreva para a equipe.</p>
+            </div>
+        </section>
+
+        <section class="secao">
+            <div class="container grid grid-2">
+                <!-- Formulário (visual, sem envio real nesta sprint) -->
+                <form class="form-contato" action="#" method="get">
+                    <div class="campo">
+                        <label for="contato-nome">Nome</label>
+                        <input type="text" id="contato-nome" name="nome" placeholder="Seu nome completo">
+                    </div>
+                    <div class="campo">
+                        <label for="contato-email">E-mail</label>
+                        <input type="email" id="contato-email" name="email" placeholder="voce@email.com">
+                    </div>
+                    <div class="campo">
+                        <label for="contato-assunto">Assunto</label>
+                        <select id="contato-assunto" name="assunto">
+                            <option>Quero doar</option>
+                            <option>Quero ser parceiro</option>
+                            <option>Dúvidas sobre o projeto</option>
+                            <option>Outro assunto</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="contato-mensagem">Mensagem</label>
+                        <textarea id="contato-mensagem" name="mensagem" rows="6"
+                            placeholder="Escreva sua mensagem"></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Enviar mensagem</button>
+                </form>
+
+                <!-- Informações de contato -->
+                <aside class="card info-contato">
+                    <h2>Outras formas de falar com a gente</h2>
+                    <p><strong>E-mail</strong><br>contato@conectadobem.exemplo</p>
+                    <p><strong>Equipe</strong><br><a href="integrantes.html">Code Master</a> – alunos do 1TDS, FIAP</p>
+                    <p><strong>Repositório</strong><br>Link do GitHub no README do projeto</p>
+                </aside>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé padrão (igual em todas as páginas) -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-marca">
+                <a class="logo" href="../index.html">
+                    <img src="../img/logo.svg" alt="" width="40" height="40">
+                    <span>Conecta do Bem</span>
+                </a>
+                <p>Plataforma criada no Challenge FIAP 1TDS para apoiar a captação e o relacionamento da Turma do Bem.
+                </p>
+                <p>Desenvolvido por <a href="integrantes.html">Code Master | FIAP</a>.</p>
+            </div>
+            <div>
+                <p class="footer-titulo">Navegação</p>
+                <ul class="footer-links">
+                    <li><a href="sobre.html">Sobre o projeto</a></li>
+                    <li><a href="doar.html">Quero doar</a></li>
+                    <li><a href="parceiros.html">Quero ser parceiro</a></li>
+                    <li><a href="faq.html">Perguntas frequentes</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer-titulo">Contato</p>
+                <p>contato@conectadobem.exemplo</p>
+                <p><a href="contato.html">Fale com a equipe</a></p>
+            </div>
+        </div>
+        <p class="footer-copy">Projeto acadêmico FIAP – Challenge 1TDS – Sprint 1. Não é um site oficial da Turma do
+            Bem.</p>
+    </footer>
+</body>
+
+</html>
