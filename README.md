@@ -53,7 +53,7 @@ Inclua aqui prints das páginas, por exemplo:
 |------|----|-------|--------|----------|
 | Nome do integrante 1 | 000000 | 1TDS | [GitHub](https://github.com/usuario-1) | [LinkedIn](https://www.linkedin.com/in/usuario-1) |
 | Bruno Godois | RM575296 | 1TDSPT | [GitHub](https://github.com/brunovgodois) | [LinkedIn](https://www.linkedin.com/in/brunovgodois/?isSelfProfile=true) |
-| Nome do integrante 3 | 000000 | 1TDS | [GitHub](https://github.com/usuario-3) | [LinkedIn](https://www.linkedin.com/in/usuario-3) |
+| Samuel Ribeiro | RM576499 | 1TDS | [GitHub](https://github.com/SamuelRibeirodev) | [LinkedIn](https://www.linkedin.com/in/usuario-3) |
 | Nome do integrante 4 | RM575947 | 1TDS | [GitHub](https://github.com/1Maroco) | [LinkedIn](https://www.linkedin.com/in/marcos-rodrigues-61158323b/?isSelfProfile=true) |
 | Nome do integrante 5 | 000000 | 1TDS | [GitHub](https://github.com/usuario-5) | [LinkedIn](https://www.linkedin.com/in/usuario-5) |
 
