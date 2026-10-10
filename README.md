@@ -45,8 +45,43 @@ Site publicado: https://policarpogustavo.github.io/Challenge-Turma-do-bem-/
 - A página de doação é um protótipo: não envia dados nem realiza pagamentos.
 
 ## Imagens do projeto
-Inclua aqui prints das páginas, por exemplo:
-`![Página inicial](img/print-home.png)`
+Prints de todas as páginas em desktop (1366px) e celular (390px). Os arquivos ficam em `img/prints/`.
+
+### Início
+| Desktop | Celular |
+|---------|---------|
+| ![Página inicial – desktop](img/prints/home.png) | ![Página inicial – celular](img/prints/home-mobile.png) |
+
+### Sobre
+| Desktop | Celular |
+|---------|---------|
+| ![Sobre – desktop](img/prints/sobre.png) | ![Sobre – celular](img/prints/sobre-mobile.png) |
+
+### Doar
+| Desktop | Celular |
+|---------|---------|
+| ![Doar – desktop](img/prints/doar.png) | ![Doar – celular](img/prints/doar-mobile.png) |
+
+### Parceiros
+| Desktop | Celular |
+|---------|---------|
+| ![Parceiros – desktop](img/prints/parceiros.png) | ![Parceiros – celular](img/prints/parceiros-mobile.png) |
+
+### Integrantes
+| Desktop | Celular |
+|---------|---------|
+| ![Integrantes – desktop](img/prints/integrantes.png) | ![Integrantes – celular](img/prints/integrantes-mobile.png) |
+
+### FAQ
+| Desktop | Celular |
+|---------|---------|
+| ![FAQ – desktop](img/prints/faq.png) | ![FAQ – celular](img/prints/faq-mobile.png) |
+
+### Contato
+| Desktop | Celular |
+|---------|---------|
+| ![Contato – desktop](img/prints/contato.png) | ![Contato – celular](img/prints/contato-mobile.png) |
+
 
 ## Autores e créditos
 | Nome | RM | Turma | GitHub | LinkedIn |
@@ -58,5 +93,5 @@ Inclua aqui prints das páginas, por exemplo:
 | Guilherme Pereira | RM575071 | 1TDSPT | [GitHub](https://github.com/guiholiv) | [LinkedIn](https://www.linkedin.com/in/guilherme-pereira-36812b385/?isSelfProfile=true) |
 
 ## Repositório
-(https://policarpogustavo.github.io/Conecta_do_Bem_Challenge/)
+(hhttps://github.com/policarpogustavo/Conecta_do_Bem_Challenge)
 
