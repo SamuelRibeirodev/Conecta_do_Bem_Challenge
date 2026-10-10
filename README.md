@@ -55,7 +55,7 @@ Inclua aqui prints das páginas, por exemplo:
 | Bruno Godois | RM575296 | 1TDSPT | [GitHub](https://github.com/brunovgodois) | [LinkedIn](https://www.linkedin.com/in/brunovgodois/?isSelfProfile=true) |
 | Samuel Ribeiro | RM576499 | 1TDS | [GitHub](https://github.com/SamuelRibeirodev) | [LinkedIn](https://www.linkedin.com/in/samuu-dev/) |
 | Marcos Rodrigues | RM575947 | 1TDS | [GitHub](https://github.com/1Maroco) | [LinkedIn](https://www.linkedin.com/in/marcos-rodrigues-61158323b/?isSelfProfile=true) |
-| Guilherme Pereira | RM575071 | 1TDSPT | [GitHub](https://github.com/guiholiv) | [LinkedIn](https://www.linkedin.com/in/usuario-5) |
+| Guilherme Pereira | RM575071 | 1TDSPT | [GitHub](https://github.com/guiholiv) | [LinkedIn](https://www.linkedin.com/in/guilherme-pereira-36812b385/?isSelfProfile=true) |
 
 ## Repositório
 (https://policarpogustavo.github.io/Conecta_do_Bem_Challenge/)
