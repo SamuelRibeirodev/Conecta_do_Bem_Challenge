@@ -51,12 +51,12 @@ Inclua aqui prints das páginas, por exemplo:
 ## Autores e créditos
 | Nome | RM | Turma | GitHub | LinkedIn |
 |------|----|-------|--------|----------|
-| Nome do integrante 1 | 000000 | 1TDS | [GitHub](https://github.com/usuario-1) | [LinkedIn](https://www.linkedin.com/in/usuario-1) |
+| Gustavo Policarpo| 574268 | 1TDSPT | [GitHub](https://github.com/policarpogustavo) | [LinkedIn](https://www.linkedin.com/in/gupolicarpo/?isSelfProfile=true) |
 | Nome do integrante 2 | 000000 | 1TDS | [GitHub](https://github.com/usuario-2) | [LinkedIn](https://www.linkedin.com/in/usuario-2) |
 | Nome do integrante 3 | 000000 | 1TDS | [GitHub](https://github.com/usuario-3) | [LinkedIn](https://www.linkedin.com/in/usuario-3) |
 | Nome do integrante 4 | 000000 | 1TDS | [GitHub](https://github.com/usuario-4) | [LinkedIn](https://www.linkedin.com/in/usuario-4) |
 | Nome do integrante 5 | 000000 | 1TDS | [GitHub](https://github.com/usuario-5) | [LinkedIn](https://www.linkedin.com/in/usuario-5) |
 
 ## Repositório
-(....................)
+(https://policarpogustavo.github.io/Conecta_do_Bem_Challenge/)
 
