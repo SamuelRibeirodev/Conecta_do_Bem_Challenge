@@ -29,7 +29,6 @@ Challenge-Turma-do-bem-/
 │   ├── parceiros.html          (níveis de parceria, funil e painel)
 │   ├── integrantes.html        (equipe Code Master)
 │   ├── faq.html                (perguntas frequentes)
-│   ├── autoavaliacao.html      (autoavaliação de bem-estar sobre apostas)
 │   └── contato.html            (formulário de contato)
 ├── index.html                  (página inicial)
 └── README.md
