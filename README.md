@@ -14,7 +14,7 @@ Sem frameworks CSS, sem bibliotecas externas e sem JavaScript, conforme as regra
 
 ## Estrutura de pastas
 ```
-Challenge-Turma-do-bem-/
+Conecta_do_Bem_Challenge/
 ├── css/
 │   └── style.css               (estilo único de todas as páginas)
 ├── img/
@@ -36,7 +36,7 @@ Challenge-Turma-do-bem-/
 
 ## Como visualizar
 Abra o `index.html` no navegador. O layout é pensado primeiro para celular e se adapta a tablets (768px), desktops (992px) e telas grandes (1300px).
-Site publicado: https://policarpogustavo.github.io/Challenge-Turma-do-bem-/
+Site publicado: https://policarpogustavo.github.io/Conecta_do_Bem_Challenge/
 
 ## Sobre os dados
 - Os números de saúde bucal (34 milhões e 14 milhões) vêm da Pesquisa Nacional de Saúde (PNS) 2019 do IBGE.
@@ -92,5 +92,5 @@ Prints de todas as páginas em desktop (1366px) e celular (390px). Os arquivos f
 | Guilherme Pereira | RM575071 | 1TDSPT | [GitHub](https://github.com/guiholiv) | [LinkedIn](https://www.linkedin.com/in/guilherme-pereira-36812b385/?isSelfProfile=true) |
 
 ## Repositório
-(hhttps://github.com/policarpogustavo/Conecta_do_Bem_Challenge)
+[github.com/policarpogustavo/Conecta_do_Bem_Challenge](https://github.com/policarpogustavo/Conecta_do_Bem_Challenge)
 
