@@ -18,11 +18,13 @@ Conecta_do_Bem_Challenge/
 ├── css/
 │   └── style.css               (estilo único de todas as páginas)
 ├── img/
-│   ├── logo.svg, avatar.svg, hero.svg, icone-*.svg   (ilustrações)
+│   ├── logo.svg, avatar.svg, icone-*.svg   (logo e ícones)
 │   ├── hero-conecta.png        (banner da página inicial)
 │   ├── impacto-social.png      (Turma do Bem e página Sobre)
 │   ├── dados-parcerias.png     (parcerias e indicadores)
-│   └── atendimento-consultorio.png (página Sobre)
+│   ├── atendimento-consultorio.png (página Sobre)
+│   ├── Gustavo.jpeg, Bruno.jpeg, Samuel.jpeg, Marcos.jpeg, Guilherme.jpeg (fotos da equipe)
+│   └── prints/                 (prints das páginas em desktop e celular)
 ├── pages/
 │   ├── sobre.html              (problema, como funciona, pilares e roadmap)
 │   ├── doar.html               (protótipo de doação: PIX, boleto e mensal)
@@ -35,7 +37,8 @@ Conecta_do_Bem_Challenge/
 ```
 
 ## Como visualizar
-Abra o `index.html` no navegador. O layout é pensado primeiro para celular e se adapta a tablets (768px), desktops (992px) e telas grandes (1300px).
+Abra o `index.html` no navegador. O layout foi desenvolvido para desktop, com ajustes em 992px (laptops e desktops) e 1300px (telas grandes), e também se adapta a tablets (768px) e celulares.
+
 Site publicado: https://policarpogustavo.github.io/Conecta_do_Bem_Challenge/
 
 ## Sobre os dados
