@@ -1805,3 +1805,143 @@ p {
         transform: none;
     }
 }
+
+/* =========================================================
+SPRINT 2 - MENU INTERATIVO E VALIDACOES
+   ========================================================= */
+
+.menu-toggle {
+    display: inline-grid;
+    place-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    margin-left: auto;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background: var(--branco);
+    color: var(--texto);
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 22px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-aberto .menu-toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-aberto .menu-toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-aberto .menu-toggle span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.campo-erro {
+    display: block;
+    min-height: 1.25rem;
+    margin-top: 0.35rem;
+    color: #b42318;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.campo-invalido {
+    border-color: #b42318 !important;
+    box-shadow: 0 0 0 3px rgb(180 35 24 / 14%);
+}
+
+.form-feedback,
+.doacao-feedback {
+    margin-top: 1rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid #86c7a5;
+    border-radius: 10px;
+    background: #e9f8ef;
+    color: #155d37;
+    font-weight: 700;
+}
+
+.form-feedback--erro {
+    border-color: #e5a49d;
+    background: #fff0ee;
+    color: #8f1d14;
+}
+
+.doacao-feedback--sucesso {
+    border-color: #4da775;
+    background: #dcf5e6;
+}
+
+@media (max-width: 991px) {
+    .header-inner {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .site-header nav {
+        display: none;
+        width: 100%;
+        order: 3;
+    }
+
+    .site-header.menu-aberto nav {
+        display: block;
+    }
+
+    .site-header .menu {
+        display: grid;
+        gap: 0.25rem;
+        margin-top: 0.75rem;
+        padding: 0.75rem;
+        overflow: visible;
+        border: 1px solid var(--borda);
+        border-radius: 12px;
+        background: var(--branco);
+        box-shadow: var(--sombra);
+    }
+
+    .site-header .menu a {
+        display: block;
+        padding: 0.7rem 0.85rem;
+    }
+
+    .header-cta {
+        margin-left: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-cta {
+        display: none;
+    }
+
+    .logo span {
+        font-size: 0.95rem;
+    }
+
+    .container {
+        width: min(100% - 1.25rem, var(--largura));
+    }
+
+    img,
+    svg,
+    video,
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .menu-toggle {
+        display: none;
+    }
+}
